@@ -37,6 +37,12 @@ struct Rectangle {
     height: u32
 }
 
+impl Rectangle {
+    fn compute_area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn main() {
     let rect = Rectangle { width: 30, height: 50 };
     // {:? means use the debug trait to print out this value (the Debug trait has a fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result method that gets called)
@@ -44,11 +50,7 @@ fn main() {
 
     println!(
         "The area is {} square pixels",
-        compute_area(rect)
+        rect.compute_area()
     );
 
-}
-
-fn compute_area(rect: Rectangle) -> u32 {
-    rect.width * rect.height
 }
